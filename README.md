@@ -10,7 +10,7 @@ ANSI color
 
 or
 
-  "scalor-string".:#[Red]
+    "scalor-string".:#[Red]
 
 #### background color :
 
@@ -38,5 +38,5 @@ or
 
 ## example
 
-![sample terminal](sassunt.github.com/scalor/docs/img/scalor_example.png)
+![sample terminal](https://raw.github.com/sassunt/scalor/master/docs/img/scalor_example.png)
 
