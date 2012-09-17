@@ -130,7 +130,7 @@ object Tones {
 }
 
 trait ImplicitColor {
-  implicit def stringToFont(txt: String) = Font(txt)
+  implicit def stringToFont(txt: String) = Font[UnPainted](txt)
   implicit def fontToString[A <: Paint](fnt: Font[A]) = fnt.toString()
   implicit def stringToPaint(txt: String) = Painter(txt)
 }
