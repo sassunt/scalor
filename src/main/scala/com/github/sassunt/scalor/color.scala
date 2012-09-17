@@ -123,6 +123,10 @@ object Tones {
   object normal extends Tone
   object dark   extends Tone
   object bright extends Tone
+
+  type Normal = normal.type
+  type Dark   = dark.type
+  type Bright = bright.type
 }
 
 trait ImplicitColor {
