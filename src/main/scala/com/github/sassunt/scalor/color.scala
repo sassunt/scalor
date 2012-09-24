@@ -75,7 +75,6 @@ final object Colors {
     val background  = ""
     val bright      = ""
     val dark        = ""
-    val decor       = ""
   }
 
   private[Colors] case class C_Bold() extends Decor {
