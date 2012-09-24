@@ -8,10 +8,10 @@ import scala.reflect.ClassManifest
 
 sealed trait Paint
 trait Painted   extends Paint
-trait Unpainted extends Paint
+trait UnPainted extends Paint
 
 object Font {
-  def apply(txt: String) = new Font[Unpainted](txt)
+  def apply(txt: String) = new Font[UnPainted](txt)
 }
 
 case class Font[A <: Paint] private[scalor] (
@@ -37,25 +37,25 @@ case class Font[A <: Paint] private[scalor] (
     this.copy[Painted](color = cls)
   }
 
-  def :~(color: Background) = this.copy(background = color)
+  def :~(color: Background) = this.copy[A](background = color)
 
   def :~[B <: Background](implicit m: ClassManifest[B]) = {
     val cls = m.erasure.newInstance().asInstanceOf[B]
-    this.copy(background = cls)
+    this.copy[A](background = cls)
   }
 
-  def :@(tone: Tone)(implicit tn: A =:= Painted) = this.copy(tone = tone)
+  def :@(tone: Tone)(implicit tn: A =:= Painted) = this.copy[A](tone = tone)
 
   def :@[T <: Tone](implicit tn: A =:= Painted, m: ClassManifest[T]) = {
     val cls = m.erasure.newInstance().asInstanceOf[T]
-    this.copy(tone = cls)
+    this.copy[A](tone = cls)
   }
 
-  def :@(decor: Decor) = this.copy(decors= decor :: decors)
+  def :@(decor: Decor) = this.copy[A](decors= decor :: decors)
 
   def :@[D <: Decor](implicit m: ClassManifest[D]) = {
     val cls = m.erasure.newInstance().asInstanceOf[D]
-    this.copy(decors = cls :: this.decors)
+    this.copy[A](decors = cls :: this.decors)
   }
 
 }

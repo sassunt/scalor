@@ -75,7 +75,6 @@ final object Colors {
     val background  = ""
     val bright      = ""
     val dark        = ""
-    val decor       = ""
   }
 
   private[Colors] case class C_Bold() extends Decor {
@@ -123,10 +122,14 @@ object Tones {
   object normal extends Tone
   object dark   extends Tone
   object bright extends Tone
+
+  type Normal = normal.type
+  type Dark   = dark.type
+  type Bright = bright.type
 }
 
 trait ImplicitColor {
-  implicit def stringToFont(txt: String) = Font(txt)
+  implicit def stringToFont(txt: String) = Font[UnPainted](txt)
   implicit def fontToString[A <: Paint](fnt: Font[A]) = fnt.toString()
   implicit def stringToPaint(txt: String) = Painter(txt)
 }

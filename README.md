@@ -18,7 +18,7 @@ or
 
 or
 
-    "scalor-string".:~[yellow]
+    "scalor-string".:~[Yellow]
 
 #### color tone :
 
@@ -26,7 +26,7 @@ or
 
 or
 
-    "scalaor-string".:#[red].:@[bright]
+    "scalaor-string".:#[Red].:@[Bright]
 
 #### bold :
 
@@ -34,7 +34,7 @@ or
 
 or
 
-    "scalor-string".:@[bold]
+    "scalor-string".:@[Bold]
 
 ## example
 
