@@ -13,6 +13,14 @@ libraryDependencies += "com.github.sassunt" % "scalor" % "0.1.0"
 
 ## Usage
 
+First, You need to import follows:
+
+```
+import com.github.sassunt.scalor.ansi._ // Required
+import Colors._                         // Optional
+import Tones._                          // Optional
+```
+
 #### text color :
 
     "scalor-string" :# red
