@@ -62,15 +62,16 @@ private[scalor] trait Colors {
   val reset: Reset
 }
 
-object Tones {
-  case object plain extends Tone
-  case object dark extends Tone
-  case object bright extends Tone
-}
-
 trait ImplicitColor {
   implicit def stringToFont(txt: String)(implicit default: FontParams): Font[UnPainted] = Font[UnPainted](txt)(default)
   implicit def fontToString[A <: Paint](fnt: Font[A]): String = fnt.colorText
   implicit def colorToFontParams(color: Color)(implicit default: FontParams): FontParams = FontParams(color, default.tone, default.bgColor, default.decors, default.reset, default.enable)
+
+  object Tones {
+    case object plain extends Tone
+    case object dark extends Tone
+    case object bright extends Tone
+  }
+
 }
 

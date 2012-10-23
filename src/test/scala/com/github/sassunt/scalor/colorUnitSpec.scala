@@ -5,8 +5,8 @@ import org.specs2.mutable._
 class ColorUnitSpec extends Specification {
 
   
-  import com.github.sassunt.scalor.Tones._
-  import com.github.sassunt.scalor.ansi.Colors._ 
+  import com.github.sassunt.scalor.ansi._
+  import Colors._
   
   "Color" should {
     "normal ANSI color code" in {
