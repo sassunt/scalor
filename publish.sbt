@@ -6,9 +6,9 @@ scalaVersion := "2.9.2"
 
 version := "0.1.0"
 
-libraryDependencies ++= Seq(
-    "org.specs2" %% "specs2" % "1.12.2" % "test"
-)
+useGpg := true
+
+pgpReadOnly := false
 
 publishMavenStyle := true
 
@@ -23,11 +23,6 @@ publishTo <<= version { (v: String) =>
   else
     Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
-
-
-resolvers += Resolver.url("sbt-plugin-releases", new URL("http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns)
-
-addSbtPlugin("com.typesafe.sbt" % "sbt-pgp" % "0.7")
 
 pomExtra := (
   <url>https://github.com/sassunt/scalor</url>
@@ -61,5 +56,4 @@ pomExtra := (
   </developers>)
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
-
 
