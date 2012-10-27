@@ -1,6 +1,6 @@
 package com.github.sassunt.scalor
 
-sealed private[scalor] trait Color {
+sealed trait Color {
   import Tones._
 
   val fgPlain: String

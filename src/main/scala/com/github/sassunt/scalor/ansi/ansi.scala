@@ -84,7 +84,3 @@ object Colors extends com.github.sassunt.scalor.Colors {
     val reset = Console.RESET
   }
 }
-
-trait ImplicitAnsiColor {
-  implicit object AnsiDefaultFontParams extends FontParams(Colors.default, Tones.plain, Colors.default, List(Colors.default), Colors.reset, true)
-}
