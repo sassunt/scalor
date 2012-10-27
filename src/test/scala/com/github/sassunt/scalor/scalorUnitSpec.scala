@@ -7,7 +7,7 @@ class ScalorUntSpec extends Specification {
   import com.github.sassunt.scalor._
   import Tones._
   
-  import com.github.sassunt.scalor.ansi._
+  import ansi._
   import Colors._
 
   ":# method" should {
