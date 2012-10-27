@@ -16,7 +16,8 @@ libraryDependencies += "com.github.sassunt" % "scalor" % "0.1.0"
 First, You need to import follows:
 
 ```
-import com.github.sassunt.scalor.ansi._ // Required
+import com.github.sassunt.scalor._      // Required
+import ansi._                           // Required
 import Colors._                         // Optional
 import Tones._                          // Optional
 ```
