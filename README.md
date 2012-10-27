@@ -55,6 +55,15 @@ or
     "scalor-string".:@[Bold]
 
 
+#### disable scalor:
+
+JVM Option: 
+
+	-Denable.scalor=false
+	
+Scala:
+
+	sys.props.put("enable.scalor", "false")
 
 ## example
 
