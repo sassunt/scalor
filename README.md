@@ -8,7 +8,7 @@ You can include scalor to your own product easily.
 Add the following to your sbt build definition:
 
 ```
-libraryDependencies += "com.github.sassunt" % "scalor" % "0.1.0"
+libraryDependencies += "com.github.sassunt" % "scalor" % "0.2.0"
 ```
 
 ## Usage
