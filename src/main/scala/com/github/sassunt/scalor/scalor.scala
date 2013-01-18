@@ -4,7 +4,7 @@ import com.github.sassunt.scalor.Colors._
 import com.github.sassunt.scalor.Tones._
 
 import scala.Console
-import scala.reflect.ClassManifest
+import scala.reflect.ClassTag
 
 sealed trait Paint
 trait Painted   extends Paint
@@ -32,29 +32,29 @@ case class Font[A <: Paint] private[scalor] (
 
   def :#(color: Color) = this.copy[Painted](color = color)
 
-  def :#[C <: Color](implicit m: ClassManifest[C]) = {
-    val cls = m.erasure.newInstance().asInstanceOf[C]
+  def :#[C <: Color](implicit classTag: ClassTag[C]) = {
+    val cls = classTag.runtimeClass.newInstance.asInstanceOf[C]
     this.copy[Painted](color = cls)
   }
 
   def :~(color: Background) = this.copy[A](background = color)
 
-  def :~[B <: Background](implicit m: ClassManifest[B]) = {
-    val cls = m.erasure.newInstance().asInstanceOf[B]
+  def :~[B <: Background](implicit classTag: ClassTag[B]) = {
+    val cls = classTag.runtimeClass.newInstance().asInstanceOf[B]
     this.copy[A](background = cls)
   }
 
   def :@(tone: Tone)(implicit tn: A =:= Painted) = this.copy[A](tone = tone)
 
-  def :@[T <: Tone](implicit tn: A =:= Painted, m: ClassManifest[T]) = {
-    val cls = m.erasure.newInstance().asInstanceOf[T]
+  def :@[T <: Tone](implicit tn: A =:= Painted, classTag: ClassTag[T]) = {
+    val cls = classTag.runtimeClass.newInstance().asInstanceOf[T]
     this.copy[A](tone = cls)
   }
 
   def :@(decor: Decor) = this.copy[A](decors= decor :: decors)
 
-  def :@[D <: Decor](implicit m: ClassManifest[D]) = {
-    val cls = m.erasure.newInstance().asInstanceOf[D]
+  def :@[D <: Decor](implicit classTag: ClassTag[D]) = {
+    val cls = classTag.runtimeClass.newInstance().asInstanceOf[D]
     this.copy[A](decors = cls :: this.decors)
   }
 
