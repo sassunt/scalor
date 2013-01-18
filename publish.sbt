@@ -1,15 +1,3 @@
-organization := "com.github.sassunt"
-
-name := "scalor"
-
-scalaVersion := "2.9.2"
-
-version := "0.1.0"
-
-useGpg := true
-
-pgpReadOnly := false
-
 publishMavenStyle := true
 
 publishArtifact in Test := false
@@ -23,6 +11,11 @@ publishTo <<= version { (v: String) =>
   else
     Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
+
+
+resolvers += Resolver.url("sbt-plugin-releases", new URL("http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns)
+
+libraryDependencies += Defaults.sbtPluginExtra("com.typesafe.sbt" %% "sbt-pgp" % "0.7","0.12","2.9.2")
 
 pomExtra := (
   <url>https://github.com/sassunt/scalor</url>
