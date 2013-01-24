@@ -44,14 +44,10 @@ case class Font[A <: Paint] private[scalor] (
     this.copy[A](background = cls)
   }
 
-  //def :@(tone: Tone)(implicit tn: A =:= Painted) = this.copy[A](tone = tone)
-
   def :@[T <: Tone](implicit tn: A =:= Painted, classTag: ClassTag[T]) = {
     val cls = classTag.runtimeClass.newInstance().asInstanceOf[T]
     this.copy[A](tone = cls)
   }
-
-  //def :@(decor: Decor) = this.copy[A](decors= decor :: decors)
 
   def :@[D <: Decor](implicit classTag: ClassTag[D]) = {
     val cls = classTag.runtimeClass.newInstance().asInstanceOf[D]
@@ -78,7 +74,7 @@ trait ImplicitFontMagnet {
     def decorate(font: Font[P]): Result = {
       font.copy[P](decors = decor :: font.decors)
     }
-  }  
+  }
 }
 
 object Painter {
