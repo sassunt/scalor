@@ -75,5 +75,4 @@ class ScalorUntSpec extends Specification {
       font2.decors mustEqual List(underline, default)
     }
   }
-
 }
