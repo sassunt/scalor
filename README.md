@@ -2,6 +2,11 @@
 
 ANSI color
 
+## sbt
+scala version 2.9.2 or 2.10.0
+
+    libraryDependencies += "com.github.sassunt" %% "scalor" % "0.1.0"
+
 ## usage
 
 #### text color :
